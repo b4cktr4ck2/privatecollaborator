@@ -53,11 +53,6 @@ echo "options edns0" >> /etc/resolv.conf
 echo "search eu-north-1.compute.internal" >> /etc/resolv.conf
 grep $MYPRIVATEIP /etc/hosts -q || (echo $MYPRIVATEIP `hostname` >> /etc/hosts)
 
-echo ""
-echo "CTRL-C if you don't need to obtain certificates."
-echo ""
-read -p "Press enter to continue"
-
 rm -rf /usr/local/collaborator/keys
 certbot certonly --manual-auth-hook "/usr/local/collaborator/dnshook.sh $MYPRIVATEIP" --manual-cleanup-hook /usr/local/collaborator/cleanup.sh \
     -d "*.$DOMAIN, $DOMAIN"  \

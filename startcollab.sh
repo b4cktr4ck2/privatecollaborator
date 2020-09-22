@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/opt/BurpSuitePro/BurpSuitePro --collaborator-server --collaborator-config=/usr/local/collaborator/collaborator.config
+java -jar /opt/BurpSuitePro/burpsuite_pro.jar --collaborator-server --collaborator-config=/usr/local/collaborator/collaborator.config

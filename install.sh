@@ -54,10 +54,7 @@ echo "search eu-north-1.compute.internal" >> /etc/resolv.conf
 grep $MYPRIVATEIP /etc/hosts -q || (echo $MYPRIVATEIP `hostname` >> /etc/hosts)
 
 rm -rf /usr/local/collaborator/keys
-certbot certonly --manual-auth-hook "/usr/local/collaborator/dnshook.sh $MYPRIVATEIP" --manual-cleanup-hook /usr/local/collaborator/cleanup.sh \
-    -d "*.$DOMAIN, $DOMAIN"  \
-    --server https://acme-v02.api.letsencrypt.org/directory \
-    --manual --agree-tos --no-eff-email --manual-public-ip-logging-ok --preferred-challenges dns-01
+certbot certonly  -d "*.$DOMAIN, $DOMAIN"   --dns-digitalocean  --server https://acme-v02.api.letsencrypt.org/directory --email "$2" --agree-tos --no-eff-email --manual-public-ip-logging-ok --preferred-challenges dns-01 --dns-digitalocean-credentials ~/do.ini
 
 CERT_PATH=/etc/letsencrypt/live/$DOMAIN
 ln -s $CERT_PATH /usr/local/collaborator/keys

@@ -58,3 +58,4 @@ certbot certonly  -d "*.$DOMAIN, $DOMAIN"   --dns-digitalocean  --server https:/
 
 CERT_PATH=/etc/letsencrypt/live/$DOMAIN
 ln -s $CERT_PATH /usr/local/collaborator/keys
+service burpcollaborator start

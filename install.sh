@@ -30,7 +30,7 @@ if [ 0 -eq $? ]; then
   fi
 fi;
 
-apt update -y && apt install -y python3 python3-pip certbot && pip3 install dnslib
+apt update -y && apt install -y python3 python3-pip certbot python3-certbot-dns-digitalocean && pip3 install dnslib
 mkdir -p /usr/local/collaborator/
 cp dnshook.sh /usr/local/collaborator/
 cp cleanup.sh /usr/local/collaborator/

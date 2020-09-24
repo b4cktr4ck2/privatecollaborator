@@ -32,7 +32,6 @@ fi;
 
 apt update -y && apt install -y python3 python3-pip certbot python3-certbot-dns-digitalocean && pip3 install dnslib
 mkdir -p /usr/local/collaborator/
-cp dnshook.sh /usr/local/collaborator/
 cp cleanup.sh /usr/local/collaborator/
 cp collaborator.config /usr/local/collaborator/collaborator.config
 sed -i "s/INT_IP/$MYPRIVATEIP/g" /usr/local/collaborator/collaborator.config
